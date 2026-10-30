@@ -1,0 +1,26 @@
+services:
+  shipment-tracker:
+    build: .
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATA_DIR: /app/data
+      COOKIE_SECURE: ${COOKIE_SECURE:-true}
+      ADMIN_SETUP_KEY: ${ADMIN_SETUP_KEY:?Set a random setup key at least 20 characters long in your local .env file}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-}
+      AFTERSHIP_API_KEY: ${AFTERSHIP_API_KEY:-}
+      AFTERSHIP_WEBHOOK_SECRET: ${AFTERSHIP_WEBHOOK_SECRET:-}
+      TRACKING_SYNC_MINUTES: ${TRACKING_SYNC_MINUTES:-30}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      RESEND_FROM_EMAIL: ${RESEND_FROM_EMAIL:-}
+    volumes:
+      - shipment_data:/app/data
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  shipment_data:
