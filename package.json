@@ -1,0 +1,15 @@
+{
+  "name": "shipment-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted shipment management with team access, live courier integrations, reports, CSV imports and customer tracking pages",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "node --watch server/app.js",
+    "test": "node --test tests/*.test.js"
+  }
+}
