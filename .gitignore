@@ -1,0 +1,21 @@
+# Private settings and database files
+.env
+.env.*
+!.env.example
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.db-wal
+*.db-shm
+
+node_modules/
+coverage/
+.cache/
+.npm/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
